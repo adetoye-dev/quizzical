@@ -66,6 +66,42 @@ body {
   border: none;
 }
 
+.questions-container {
+  padding: 10px 20px;
+}
+
+.question {
+  margin-bottom: 15px;
+}
+
+.question-title {
+  margin-bottom: 10px;
+  color: #293264;
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+}
+
+.question-options {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 12px;
+}
+
+.option {
+  width: auto;
+  padding-inline: 10px;
+  height: 21px;
+  border-radius: 8px;
+  color: #293264;
+  font-family: "Inter", sans-serif;
+  border: 1px solid #293264;
+  font-size: 13px;
+}
+
+.selected {
+  background-color: #d6dbf5;
+}
+
 @media (min-width: 550px) {
   .container {
     height: 550px;
