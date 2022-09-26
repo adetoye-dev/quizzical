@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import HomePage from "./HomePage";
+import HomePage from "./components/HomePage";
+import QuizPage from "./components/QuizPage";
 
 const App = () => {
   const [quiz, setQuiz] = useState(false);
@@ -10,7 +11,9 @@ const App = () => {
   };
 
   return (
-    <main className="main">{!quiz && <HomePage startQuiz={startQuiz} />}</main>
+    <main className="main">
+      {quiz ? <QuizPage /> : <HomePage startQuiz={startQuiz} />}
+    </main>
   );
 };
 
