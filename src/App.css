@@ -68,6 +68,7 @@ body {
 
 .questions-container {
   padding: 10px 20px;
+  z-index: 99;
 }
 
 .question {
@@ -90,12 +91,13 @@ body {
 .option {
   width: auto;
   padding-inline: 10px;
-  height: 21px;
+  min-height: 21px;
   border-radius: 8px;
   color: #293264;
   font-family: "Inter", sans-serif;
   border: 1px solid #293264;
   font-size: 13px;
+  cursor: pointer;
 }
 
 .selected {
