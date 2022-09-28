@@ -3,9 +3,11 @@ import blobLeft from "../assets/quiz-blob-left.png";
 import blobRight from "../assets/quiz-blob-right.png";
 import Question from "./Question";
 import axios from "axios";
+import { nanoid } from "nanoid";
 
 const QuizPage = () => {
   const [questions, setQuestions] = useState([]);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     axios
@@ -17,17 +19,50 @@ const QuizPage = () => {
           type: "multiple",
         },
       })
-      .then((res) => setQuestions(res.data.results));
+      .then((res) => {
+        const newQuestions = res.data.results.map((question) => {
+          const randomNumber = Math.floor(Math.random() * 4);
+          const arr = question.incorrect_answers.map((ans) => ans);
+          arr.splice(randomNumber, "", question.correct_answer);
+          const optionArray = arr.map((item) => ({
+            value: item,
+            selected: false,
+            background: "",
+            id: nanoid(),
+          }));
+          return { ...question, questionId: nanoid(), options: optionArray };
+        });
+
+        setQuestions(newQuestions);
+      });
   }, []);
 
-  console.log(questions);
+  const selectOption = (optionId) => {
+    setQuestions((prevQuestions) => {
+      return prevQuestions.map((question) => {
+        const someWasSelected = question.options.some(
+          (option) => option.selected
+        );
+        if (someWasSelected) {
+          return question;
+        }
+        const newOptions = question.options.map((option) => {
+          return option.id === optionId
+            ? { ...option, selected: true, background: "#d6dbf5" }
+            : option;
+        });
+        return { ...question, options: newOptions };
+      });
+    });
+  };
 
-  const questionElements = questions.map((item) => {
+  const questionElements = questions.map((question) => {
     return (
       <Question
-        question={item.question}
-        correct_answer={item.correct_answer}
-        incorrect_answers={item.incorrect_answers}
+        key={question.questionId}
+        question={question.question}
+        options={question.options}
+        selectOption={selectOption}
       />
     );
   });
@@ -36,6 +71,10 @@ const QuizPage = () => {
     <div className="container quiz">
       <img src={blobRight} className="right-blob" alt="blob" />
       <div className="questions-container">{questionElements}</div>
+      <div>
+        {score}
+        <button onClick={checkAnswers}>Check Answers</button>
+      </div>
       <img src={blobLeft} className="left-blob" alt="blob" />
     </div>
   );

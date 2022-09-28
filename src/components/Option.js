@@ -2,7 +2,7 @@ import React from "react";
 
 const Option = (props) => {
   const style = {
-    backgroundColor: props.selected ? "#d6dbf5" : "",
+    backgroundColor: props.background,
   };
 
   return (
