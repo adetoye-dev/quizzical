@@ -56,6 +56,28 @@ const QuizPage = () => {
     });
   };
 
+  const checkAnswers = () => {
+    setQuestions((oldQuestions) => {
+      return oldQuestions.map((question) => {
+        const newOptionsValue = question.options.map((option) => {
+          if (option.selected) {
+            if (option.value === question.correct_answer) {
+              setScore((oldScore) => oldScore + 1);
+              return { ...option, background: "#94D7A2" };
+            } else {
+              return { ...option, background: "#F8BCBC" };
+            }
+          } else if (option.value === question.correct_answer) {
+            return { ...option, background: "#94D7A2" };
+          } else {
+            return option;
+          }
+        });
+        return { ...question, options: newOptionsValue };
+      });
+    });
+  };
+
   const questionElements = questions.map((question) => {
     return (
       <Question
