@@ -105,9 +105,11 @@ const QuizPage = () => {
     <div className="container quiz">
       <img src={blobRight} className="right-blob" alt="blob" />
       <div className="questions-container">{questionElements}</div>
-      <div>
-        {submitted && `You scored ${score}/5 correct answers`}
-        <button onClick={checkAnswers}>
+      <div className="score-board">
+        {submitted && (
+          <p className="score-text">You scored {score}/5 correct answers</p>
+        )}
+        <button className="score-btn" onClick={checkAnswers}>
           {submitted ? "Play Again" : "Check Answers"}
         </button>
       </div>
