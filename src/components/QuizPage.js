@@ -8,8 +8,9 @@ import { nanoid } from "nanoid";
 const QuizPage = () => {
   const [questions, setQuestions] = useState([]);
   const [score, setScore] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
 
-  useEffect(() => {
+  const allNewQuestions = () => {
     axios
       .get("https://opentdb.com/api.php", {
         params: {
@@ -35,6 +36,10 @@ const QuizPage = () => {
 
         setQuestions(newQuestions);
       });
+  };
+
+  useEffect(() => {
+    allNewQuestions();
   }, []);
 
   const selectOption = (optionId) => {
@@ -57,6 +62,13 @@ const QuizPage = () => {
   };
 
   const checkAnswers = () => {
+    if (submitted) {
+      setSubmitted(false);
+      setScore(0);
+      allNewQuestions();
+      return;
+    }
+    setSubmitted(true);
     setQuestions((oldQuestions) => {
       return oldQuestions.map((question) => {
         const newOptionsValue = question.options.map((option) => {
@@ -94,8 +106,10 @@ const QuizPage = () => {
       <img src={blobRight} className="right-blob" alt="blob" />
       <div className="questions-container">{questionElements}</div>
       <div>
-        {score}
-        <button onClick={checkAnswers}>Check Answers</button>
+        {submitted && `You scored ${score}/5 correct answers`}
+        <button onClick={checkAnswers}>
+          {submitted ? "Play Again" : "Check Answers"}
+        </button>
       </div>
       <img src={blobLeft} className="left-blob" alt="blob" />
     </div>
