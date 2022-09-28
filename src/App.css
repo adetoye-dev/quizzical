@@ -79,12 +79,13 @@ body {
   color: #293264;
   font-family: "Karla", sans-serif;
   font-size: 18px;
-  word-wrap: break-word;
 }
 
 .question-options {
   margin-bottom: 15px;
   display: flex;
+  flex-direction: column;
+  max-width: 50%;
   gap: 12px;
 }
 
@@ -128,5 +129,8 @@ body {
 @media (min-width: 550px) {
   .container {
     min-height: 550px;
+  }
+  .question-options {
+    flex-direction: row;
   }
 }
