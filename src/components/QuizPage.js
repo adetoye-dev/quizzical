@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import blobLeft from "../assets/quiz-blob-left.png";
 import blobRight from "../assets/quiz-blob-right.png";
 import Question from "./Question";
-import axios from "axios";
+import quiz from "../apis/opentdb";
 import { nanoid } from "nanoid";
 
 const QuizPage = () => {
@@ -11,13 +11,11 @@ const QuizPage = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const allNewQuestions = () => {
-    axios
-      .get("https://opentdb.com/api.php", {
+    quiz
+      .get("/", {
         params: {
-          amount: 5,
           category: 18,
           difficulty: "easy",
-          type: "multiple",
         },
       })
       .then((res) => {
