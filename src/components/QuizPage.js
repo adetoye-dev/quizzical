@@ -4,18 +4,20 @@ import blobRight from "../assets/quiz-blob-right.png";
 import Question from "./Question";
 import openTrivia from "../apis/opentrivia";
 import { nanoid } from "nanoid";
+import { useUserSelect } from "../contexts/UserSelect";
 
 const QuizPage = () => {
   const [questions, setQuestions] = useState([]);
   const [score, setScore] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const { category, difficulty } = useUserSelect();
 
   const getNewQuestions = () => {
     openTrivia
       .get("/", {
         params: {
-          category: 18,
-          difficulty: "easy",
+          category: category,
+          difficulty: difficulty,
         },
       })
       .then((res) => {
