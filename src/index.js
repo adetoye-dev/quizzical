@@ -6,9 +6,7 @@ import UserSelect from "./contexts/UserSelect";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <React.StrictMode>
-    <UserSelect>
-      <App />
-    </UserSelect>
-  </React.StrictMode>
+  <UserSelect>
+    <App />
+  </UserSelect>
 );
