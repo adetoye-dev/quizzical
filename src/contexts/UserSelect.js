@@ -10,9 +10,15 @@ const UserSelect = ({ children }) => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
 
-  const contextValues = useMemo(() => {
-    category, difficulty, setCategory, setDifficulty;
-  }, [category, difficulty]);
+  const contextValues = useMemo(
+    () => ({
+      category,
+      difficulty,
+      setCategory,
+      setDifficulty,
+    }),
+    [category, difficulty]
+  );
 
   return (
     <userContext.Provider value={contextValues}>
