@@ -10,7 +10,7 @@ const QuizPage = () => {
   const [score, setScore] = useState(0);
   const [submitted, setSubmitted] = useState(false);
 
-  const allNewQuestions = () => {
+  const getNewQuestions = () => {
     openTrivia
       .get("/", {
         params: {
@@ -37,7 +37,7 @@ const QuizPage = () => {
   };
 
   useEffect(() => {
-    allNewQuestions();
+    getNewQuestions();
   }, []);
 
   const selectOption = (optionId) => {
@@ -63,7 +63,7 @@ const QuizPage = () => {
     if (submitted) {
       setSubmitted(false);
       setScore(0);
-      allNewQuestions();
+      getNewQuestions();
       return;
     }
     setSubmitted(true);
