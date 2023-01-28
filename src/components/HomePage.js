@@ -8,7 +8,6 @@ const HomePage = ({ startQuiz }) => {
       <h1 className="title">Quizzical</h1>
       <h3 className="desc">Quiz questions to test your brain.</h3>
       <label htmlFor="trivia_category">Select Category:</label>
-      .ca
       <select name="trivia_category" class="form-select categories">
         <option value="">Any Category</option>
         <option value="9">General Knowledge</option>
