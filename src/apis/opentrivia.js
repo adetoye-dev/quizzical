@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const quiz = axios.create({
+const openTrivia = axios.create({
   baseURL: "https://opentdb.com/api.php",
   params: {
     amount: 5,
@@ -8,4 +8,4 @@ const quiz = axios.create({
   },
 });
 
-export default quiz;
+export default openTrivia;

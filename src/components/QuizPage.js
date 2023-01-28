@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import blobLeft from "../assets/quiz-blob-left.png";
 import blobRight from "../assets/quiz-blob-right.png";
 import Question from "./Question";
-import quiz from "../apis/opentdb";
+import openTrivia from "../apis/opentrivia";
 import { nanoid } from "nanoid";
 
 const QuizPage = () => {
@@ -11,7 +11,7 @@ const QuizPage = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const allNewQuestions = () => {
-    quiz
+    openTrivia
       .get("/", {
         params: {
           category: 18,
