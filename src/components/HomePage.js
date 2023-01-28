@@ -1,14 +1,29 @@
 import React from "react";
 import blobRight from "../assets/home-blob-right.png";
 import blobLeft from "../assets/home-blob-left.png";
+import { useUserSelect } from "../contexts/UserSelect";
 const HomePage = ({ startQuiz }) => {
+  const { setCategory, setDifficulty } = useUserSelect();
+
+  const handleCategoryChange = (input) => {
+    setCategory(input);
+  };
+
+  const handleDifficultyChange = (input) => {
+    setDifficulty(input);
+  };
+
   return (
     <div className="home container">
       <img src={blobRight} className="right-blob" alt="blob" />
       <h1 className="title">Quizzical</h1>
       <h3 className="desc">Quiz questions to test your brain.</h3>
       <label htmlFor="trivia_category">Select Category:</label>
-      <select name="trivia_category" class="form-select categories">
+      <select
+        name="trivia_category"
+        className="form-select categories"
+        onChange={(e) => handleCategoryChange(e.target.value)}
+      >
         <option value="">Any Category</option>
         <option value="9">General Knowledge</option>
         <option value="10">Entertainment: Books</option>
@@ -36,7 +51,11 @@ const HomePage = ({ startQuiz }) => {
         <option value="32">Entertainment: Cartoon &amp; Animations</option>{" "}
       </select>
       <label htmlFor="trivia_difficulty">Select Difficulty:</label>
-      <select name="trivia_difficulty" class="form-control">
+      <select
+        name="trivia_difficulty"
+        className="form-select difficulty"
+        onChange={(e) => handleDifficultyChange(e.target.value)}
+      >
         <option value="">Any Difficulty</option>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
