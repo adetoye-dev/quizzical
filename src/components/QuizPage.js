@@ -112,7 +112,9 @@ const QuizPage = () => {
       )}
       <div className="score-board">
         {submitted && (
-          <p className="score-text">You scored {score}/5 correct answers</p>
+          <p className="score-text">
+            You scored {score ? score : 0}/{questions.length} correct answers
+          </p>
         )}
         <button className="score-btn" onClick={checkAnswers}>
           {submitted ? "Play Again" : "Check Answers"}
