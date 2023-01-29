@@ -22,7 +22,7 @@ const HomePage = ({ startQuiz }) => {
     <div className="home container">
       <img src={blobRight} className="right-blob" alt="blob" />
       <h1 className="title">Quizzical</h1>
-      <h3 className="desc">Quiz questions to test your brain.</h3>
+      <p className="desc">Interesting questions to test your knowledge.</p>
       <label htmlFor="trivia_category" className="input-label">
         Select Category:
       </label>

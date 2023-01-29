@@ -49,7 +49,15 @@ body {
   font-family: "Karla", sans-serif;
   font-size: 40px;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+}
+
+.desc {
+  font-size: 18px;
+  font-family: "Karla", sans-serif;
+  text-align: center;
+  color: #4d5b9e;
+  margin-bottom: 20px;
 }
 
 .input-label {
