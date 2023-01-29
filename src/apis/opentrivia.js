@@ -3,7 +3,7 @@ import axios from "axios";
 const openTrivia = axios.create({
   baseURL: "https://opentdb.com/api.php",
   params: {
-    amount: 5,
+    amount: 10,
     type: "multiple",
   },
 });
