@@ -52,6 +52,12 @@ body {
   margin-bottom: 30px;
 }
 
+.input-label {
+  margin-block-start: 1rem;
+  color: #293264;
+  font-weight: 600;
+}
+
 .start-quiz {
   font-family: "Inter", sans-serif;
   font-weight: 550;
@@ -63,6 +69,7 @@ body {
   background-color: #4d5b9e;
   outline: none;
   border: none;
+  margin-block-start: 2rem;
 }
 
 .questions-container {

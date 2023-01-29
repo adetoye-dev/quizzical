@@ -23,8 +23,10 @@ const HomePage = ({ startQuiz }) => {
       <img src={blobRight} className="right-blob" alt="blob" />
       <h1 className="title">Quizzical</h1>
       <h3 className="desc">Quiz questions to test your brain.</h3>
-      <label htmlFor="trivia_category">Select Category:</label>
-      <FormControl sx={{ m: 1, minWidth: 150 }}>
+      <label htmlFor="trivia_category" className="input-label">
+        Select Category:
+      </label>
+      <FormControl sx={{ m: 1, minWidth: 200 }}>
         <Select
           name="trivia_category"
           onChange={(e) => handleCategoryChange(e.target.value)}
@@ -63,8 +65,10 @@ const HomePage = ({ startQuiz }) => {
           </MenuItem>
         </Select>
       </FormControl>
-      <label htmlFor="trivia_difficulty">Select Difficulty:</label>
-      <FormControl sx={{ m: 1, minWidth: 150 }}>
+      <label htmlFor="trivia_difficulty" className="input-label">
+        Select Difficulty:
+      </label>
+      <FormControl sx={{ m: 1, minWidth: 200 }}>
         <Select
           name="trivia_difficulty"
           onChange={(e) => handleDifficultyChange(e.target.value)}
