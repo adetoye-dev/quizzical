@@ -4,6 +4,7 @@ import blobRight from "../assets/quiz-blob-right.png";
 import Question from "./Question";
 import openTrivia from "../apis/opentrivia";
 import { nanoid } from "nanoid";
+import Loader from "./Loader";
 import { useUserSelect } from "../contexts/UserSelect";
 
 const QuizPage = () => {
@@ -104,7 +105,11 @@ const QuizPage = () => {
   return (
     <div className="container quiz">
       <img src={blobRight} className="right-blob" alt="blob" />
-      <div className="questions-container">{questionElements}</div>
+      {questions.length !== 0 ? (
+        <div className="questions-container">{questionElements}</div>
+      ) : (
+        <Loader />
+      )}
       <div className="score-board">
         {submitted && (
           <p className="score-text">You scored {score}/5 correct answers</p>
