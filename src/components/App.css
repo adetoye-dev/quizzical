@@ -84,6 +84,34 @@ body {
   z-index: 99;
 }
 
+.loader {
+  margin-block: 5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loader-spin {
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 2px dashed #4d5b9e;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-text {
+  color: #4d5b9e;
+}
+
 .question {
   width: 100%;
   margin-bottom: 15px;
