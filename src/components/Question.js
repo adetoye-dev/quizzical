@@ -14,7 +14,10 @@ const Question = (props) => {
 
   return (
     <div className="question">
-      <h3 className="question-title">{props.question}</h3>
+      <h3
+        className="question-title"
+        dangerouslySetInnerHTML={{ __html: props.question }}
+      ></h3>
       <div className="question-options">{renderedOptions}</div>
       <hr />
     </div>

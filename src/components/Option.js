@@ -6,9 +6,12 @@ const Option = (props) => {
   };
 
   return (
-    <button className="option" style={style} onClick={props.selectOption}>
-      {props.value}
-    </button>
+    <button
+      className="option"
+      style={style}
+      onClick={props.selectOption}
+      dangerouslySetInnerHTML={{ __html: props.value }}
+    ></button>
   );
 };
 
