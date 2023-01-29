@@ -2,8 +2,13 @@ import React from "react";
 import blobRight from "../assets/home-blob-right.png";
 import blobLeft from "../assets/home-blob-left.png";
 import { useUserSelect } from "../contexts/UserSelect";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+
 const HomePage = ({ startQuiz }) => {
-  const { setCategory, setDifficulty } = useUserSelect();
+  const { category, difficulty, setCategory, setDifficulty } = useUserSelect();
 
   const handleCategoryChange = (input) => {
     setCategory(input);
@@ -19,48 +24,60 @@ const HomePage = ({ startQuiz }) => {
       <h1 className="title">Quizzical</h1>
       <h3 className="desc">Quiz questions to test your brain.</h3>
       <label htmlFor="trivia_category">Select Category:</label>
-      <select
-        name="trivia_category"
-        className="form-select categories"
-        onChange={(e) => handleCategoryChange(e.target.value)}
-      >
-        <option value="">Any Category</option>
-        <option value="9">General Knowledge</option>
-        <option value="10">Entertainment: Books</option>
-        <option value="11">Entertainment: Film</option>
-        <option value="12">Entertainment: Music</option>
-        <option value="13">Entertainment: Musicals &amp; Theatres</option>
-        <option value="14">Entertainment: Television</option>
-        <option value="15">Entertainment: Video Games</option>
-        <option value="16">Entertainment: Board Games</option>
-        <option value="17">Science &amp; Nature</option>
-        <option value="18">Science: Computers</option>
-        <option value="19">Science: Mathematics</option>
-        <option value="20">Mythology</option>
-        <option value="21">Sports</option>
-        <option value="22">Geography</option>
-        <option value="23">History</option>
-        <option value="24">Politics</option>
-        <option value="25">Art</option>
-        <option value="26">Celebrities</option>
-        <option value="27">Animals</option>
-        <option value="28">Vehicles</option>
-        <option value="29">Entertainment: Comics</option>
-        <option value="30">Science: Gadgets</option>
-        <option value="31">Entertainment: Japanese Anime &amp; Manga</option>
-        <option value="32">Entertainment: Cartoon &amp; Animations</option>{" "}
-      </select>
+      <FormControl sx={{ m: 1, minWidth: 150 }}>
+        <Select
+          name="trivia_category"
+          onChange={(e) => handleCategoryChange(e.target.value)}
+          displayEmpty
+          value={category}
+          inputProps={{ "aria-label": "Without label" }}
+        >
+          <MenuItem value="">Any Category</MenuItem>
+          <MenuItem value="9">General Knowledge</MenuItem>
+          <MenuItem value="10">Entertainment: Books</MenuItem>
+          <MenuItem value="11">Entertainment: Film</MenuItem>
+          <MenuItem value="12">Entertainment: Music</MenuItem>
+          <MenuItem value="13">Entertainment: Musicals &amp; Theatres</MenuItem>
+          <MenuItem value="14">Entertainment: Television</MenuItem>
+          <MenuItem value="15">Entertainment: Video Games</MenuItem>
+          <MenuItem value="16">Entertainment: Board Games</MenuItem>
+          <MenuItem value="17">Science &amp; Nature</MenuItem>
+          <MenuItem value="18">Science: Computers</MenuItem>
+          <MenuItem value="19">Science: Mathematics</MenuItem>
+          <MenuItem value="20">Mythology</MenuItem>
+          <MenuItem value="21">Sports</MenuItem>
+          <MenuItem value="22">Geography</MenuItem>
+          <MenuItem value="23">History</MenuItem>
+          <MenuItem value="24">Politics</MenuItem>
+          <MenuItem value="25">Art</MenuItem>
+          <MenuItem value="26">Celebrities</MenuItem>
+          <MenuItem value="27">Animals</MenuItem>
+          <MenuItem value="28">Vehicles</MenuItem>
+          <MenuItem value="29">Entertainment: Comics</MenuItem>
+          <MenuItem value="30">Science: Gadgets</MenuItem>
+          <MenuItem value="31">
+            Entertainment: Japanese Anime &amp; Manga
+          </MenuItem>
+          <MenuItem value="32">
+            Entertainment: Cartoon &amp; Animations
+          </MenuItem>
+        </Select>
+      </FormControl>
       <label htmlFor="trivia_difficulty">Select Difficulty:</label>
-      <select
-        name="trivia_difficulty"
-        className="form-select difficulty"
-        onChange={(e) => handleDifficultyChange(e.target.value)}
-      >
-        <option value="">Any Difficulty</option>
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-      </select>
+      <FormControl sx={{ m: 1, minWidth: 150 }}>
+        <Select
+          name="trivia_difficulty"
+          onChange={(e) => handleDifficultyChange(e.target.value)}
+          displayEmpty
+          value={difficulty}
+          inputProps={{ "aria-label": "Without label" }}
+        >
+          <MenuItem value="">Any Difficulty</MenuItem>
+          <MenuItem value="easy">Easy</MenuItem>
+          <MenuItem value="medium">Medium</MenuItem>
+          <MenuItem value="hard">Hard</MenuItem>
+        </Select>
+      </FormControl>
       <button className="start-quiz" onClick={startQuiz}>
         Start quiz
       </button>
