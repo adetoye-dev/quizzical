@@ -1,19 +1,14 @@
-import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import HomePage from "./HomePage";
 import QuizPage from "./QuizPage";
 
 const App = () => {
-  const [quiz, setQuiz] = useState(false);
-
-  const startQuiz = () => {
-    setQuiz(true);
-  };
-
   return (
-    <main className="main">
-      {quiz ? <QuizPage /> : <HomePage startQuiz={startQuiz} />}
-    </main>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/quiz" element={<QuizPage />} />
+    </Routes>
   );
 };
 
