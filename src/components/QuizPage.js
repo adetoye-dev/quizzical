@@ -44,6 +44,9 @@ const QuizPage = () => {
   }, []);
 
   const selectOption = (questionId, optionId) => {
+    if (submitted) {
+      return;
+    }
     setQuestions((prevQuestions) => {
       return prevQuestions.map((question) => {
         if (questionId !== question.questionId) {
