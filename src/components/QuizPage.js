@@ -43,19 +43,16 @@ const QuizPage = () => {
     getNewQuestions();
   }, []);
 
-  const selectOption = (optionId) => {
+  const selectOption = (questionId, optionId) => {
     setQuestions((prevQuestions) => {
       return prevQuestions.map((question) => {
-        const someWasSelected = question.options.some(
-          (option) => option.selected
-        );
-        if (someWasSelected) {
+        if (questionId !== question.questionId) {
           return question;
         }
         const newOptions = question.options.map((option) => {
           return option.id === optionId
             ? { ...option, selected: true, background: "#d6dbf5" }
-            : option;
+            : { ...option, selected: false, background: "" };
         });
         return { ...question, options: newOptions };
       });
@@ -95,6 +92,7 @@ const QuizPage = () => {
     return (
       <Question
         key={question.questionId}
+        questionId={question.questionId}
         question={question.question}
         options={question.options}
         selectOption={selectOption}
