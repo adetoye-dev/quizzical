@@ -1,0 +1,79 @@
+.header-element {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.header {
+  width: 100%;
+  background-color: #1c2242;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1048px;
+  margin: 0 auto;
+}
+.logo {
+  color: #fff;
+}
+.nav {
+  padding: 1rem 0;
+  background-color: #1c2242;
+}
+.menu-btn {
+  display: none;
+}
+.primary-navigation {
+  position: relative;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  z-index: 99;
+  background-color: #1c2242;
+  list-style: none;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-link {
+  color: #fff;
+}
+.cancel-btn {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .primary-navigation {
+    position: fixed;
+    inset: 0 0 0 40%;
+    height: 55vh;
+    border: 1px solid #4d5b9e;
+    border-right: none;
+    border-radius: 1rem 0 0 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    transform: translateX(100%);
+    transition: transform 300ms ease-out;
+  }
+  .primary-navigation[data-visible="true"] {
+    transform: translateX(0%);
+  }
+  .cancel-btn {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .menu-btn {
+    display: block;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+  }
+}
