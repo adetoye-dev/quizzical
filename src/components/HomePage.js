@@ -5,6 +5,7 @@ import { useUserSelect } from "../contexts/UserSelect";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { Link } from "react-router-dom";
 
 const HomePage = ({ startQuiz }) => {
   const { category, difficulty, setCategory, setDifficulty } = useUserSelect();
@@ -81,9 +82,9 @@ const HomePage = ({ startQuiz }) => {
           <MenuItem value="hard">Hard</MenuItem>
         </Select>
       </FormControl>
-      <button className="start-quiz" onClick={startQuiz}>
-        Start quiz
-      </button>
+      <Link to="/quiz">
+        <button className="start-quiz">Start quiz</button>
+      </Link>
       <img src={blobLeft} className="left-blob" alt="blob" />
     </div>
   );
