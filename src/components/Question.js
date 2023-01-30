@@ -6,7 +6,7 @@ const Question = (props) => {
     <Option
       key={option.id}
       value={option.value}
-      selectOption={() => props.selectOption(option.id)}
+      selectOption={() => props.selectOption(props.questionId, option.id)}
       selected={option.selected}
       background={option.background}
     />
