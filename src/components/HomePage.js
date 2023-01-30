@@ -2,7 +2,6 @@ import React from "react";
 import blobRight from "../assets/home-blob-right.png";
 import blobLeft from "../assets/home-blob-left.png";
 import { useUserSelect } from "../contexts/UserSelect";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
