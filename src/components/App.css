@@ -11,15 +11,6 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-.main {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .container {
   position: relative;
   background-color: #f5f7fb;
