@@ -13,9 +13,9 @@ const NavBar = () => {
     <header className="header-element">
       <div className="header">
         <div className="nav-container">
-          <div className="logo">
+          <Link to="/" className="logo">
             <h2>Quizzical</h2>
-          </div>
+          </Link>
           <nav className="nav">
             <ul
               className="primary-navigation"
