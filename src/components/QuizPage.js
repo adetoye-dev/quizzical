@@ -110,20 +110,23 @@ const QuizPage = () => {
       <div className="container quiz">
         <img src={blobRight} className="right-blob" alt="blob" />
         {questions.length !== 0 ? (
-          <div className="questions-container">{questionElements}</div>
+          <>
+            <div className="questions-container">{questionElements}</div>
+            <div className="score-board">
+              {submitted && (
+                <p className="score-text">
+                  You scored {score ? score : 0}/{questions.length} correct
+                  answers
+                </p>
+              )}
+              <button className="score-btn" onClick={checkAnswers}>
+                {submitted ? "Play Again" : "Check Answers"}
+              </button>
+            </div>
+          </>
         ) : (
           <Loader />
         )}
-        <div className="score-board">
-          {submitted && (
-            <p className="score-text">
-              You scored {score ? score : 0}/{questions.length} correct answers
-            </p>
-          )}
-          <button className="score-btn" onClick={checkAnswers}>
-            {submitted ? "Play Again" : "Check Answers"}
-          </button>
-        </div>
         <img src={blobLeft} className="left-blob" alt="blob" />
       </div>
     </>
